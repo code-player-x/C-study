@@ -89,7 +89,6 @@ namespace px{
 					{
 
 						q.push (i);
-						visited[i] = true;
 					}   
 				}
 			}
