@@ -24,3 +24,17 @@ public:
         }
     }
 };
+
+class solution {
+public:
+	int lastStoneWeightII(vector<int>& stones) {
+		auto sum = accumulate(stones.begin(), stones.end(), 0);
+		vector<int> dp(sum / 2 + 1);
+		for (const auto& stone : stones) {
+			for (auto j = sum / 2; j >= stone; j--) {
+				dp[j] = max(dp[j], dp[j - stone] + stone);
+			}
+		}
+		return sum - dp[sum / 2] * 2;
+	}
+};
